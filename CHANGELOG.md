@@ -7,6 +7,10 @@ Not all changes are documented here - please check git log for complete list.
 sView yy.MM (in development)
 -----------------------------------------------------------------------------------------------------------------------
 
+- Added **Vietnamese** (`Tiếng Việt`) translation files across all modules and Vietnamese user guide (`docs/HELP_VI.md`).
+- Windows/macOS, switched default sans-serif UI font to **Tahoma** (with Trebuchet MS fallback) for full Vietnamese Unicode glyph coverage.
+- macOS, updated application icon (`sView.icns`) with `VN` badge and added `build_macos.py` automated build & packaging script.
+- Distorted output (`StOutDistorted`), added `TV (half size)` device option below `TV (parallel pair)` for 16:9 3D TV output (active in both windowed and fullscreen modes).
 - Android, try using Mediacodec for decoding AV1 and yuv420p10 videos with GPU decoding option.
 
 sView 26.09 (2026-09-13)
