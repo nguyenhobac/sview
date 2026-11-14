@@ -235,10 +235,11 @@ class StOutDistorted : public StWindow {
         private:
 
     enum {
-        DEVICE_AUTO         =-1,
-        DEVICE_DISTORTED    = 0, //!< general output
-        DEVICE_HMD          = 1, //!< VR HMD
-        DEVICE_S3DV         = 2, //!< S3DV
+        DEVICE_AUTO           = -1,
+        DEVICE_DISTORTED      = 0, //!< general output
+        DEVICE_DISTORTED_HALF = 1, //!< half-width side-by-side output for 16:9 3D TV
+        DEVICE_HMD            = 2, //!< VR HMD
+        DEVICE_S3DV           = 3, //!< S3DV
         DEVICE_NB,
     };
 
@@ -257,6 +258,7 @@ class StOutDistorted : public StWindow {
             case DEVICE_HMD:
                 return LAYOUT_SIDE_BY_SIDE;
             case DEVICE_S3DV:
+            case DEVICE_DISTORTED_HALF:
                 return LAYOUT_SIDE_BY_SIDE_ANAMORPH;
             default:
             case DEVICE_DISTORTED:

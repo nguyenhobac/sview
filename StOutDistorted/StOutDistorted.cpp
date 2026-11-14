@@ -46,6 +46,7 @@ namespace {
         STTR_OPENVR_DESC        = 1003,
         STTR_S3DV_NAME          = 1004,
         STTR_S3DV_DESC          = 1005,
+        STTR_DISTORTED_HALF_NAME = 1006,
 
         // parameters
         STTR_PARAMETER_LAYOUT     = 1110,
@@ -133,10 +134,11 @@ const char* StOutDistorted::getRendererId() const {
 
 const char* StOutDistorted::getDeviceId() const {
     switch(myDevice) {
-        case DEVICE_HMD:       return "OpenVR";
-        case DEVICE_S3DV:      return "S3DV";
+        case DEVICE_HMD:            return "OpenVR";
+        case DEVICE_S3DV:           return "S3DV";
+        case DEVICE_DISTORTED_HALF: return "DistortedHalf";
         case DEVICE_DISTORTED:
-        default:               return "Distorted";
+        default:                    return "Distorted";
     }
 }
 
@@ -155,6 +157,11 @@ bool StOutDistorted::setDevice(const StString& theDevice) {
             myToResetDevice = true;
         }
         myDevice = DEVICE_S3DV;
+    } else if(theDevice == "DistortedHalf") {
+        if(myDevice != DEVICE_DISTORTED_HALF) {
+            myToResetDevice = true;
+        }
+        myDevice = DEVICE_DISTORTED_HALF;
     } else if(theDevice == "Distorted") {
         if(myDevice != DEVICE_DISTORTED) {
             myToResetDevice = true;
@@ -172,7 +179,8 @@ void StOutDistorted::getDevices(StOutDevicesList& theList) const {
 
 void StOutDistorted::getOptions(StParamsList& theList) const {
     if (myDevice != DEVICE_HMD
-     && myDevice != DEVICE_S3DV) {
+     && myDevice != DEVICE_S3DV
+     && myDevice != DEVICE_DISTORTED_HALF) {
         theList.push_back(params.Layout);
     }
     if (myDevice == DEVICE_HMD) {
@@ -185,10 +193,12 @@ void StOutDistorted::getOptions(StParamsList& theList) const {
 void StOutDistorted::updateStrings() {
     StTranslations aLangMap(getResourceManager(), ST_OUT_PLUGIN_NAME);
 
-    myDevices[DEVICE_DISTORTED]->Name = aLangMap.changeValueId(STTR_DISTORTED_NAME, "TV (parallel pair)");
-    myDevices[DEVICE_DISTORTED]->Desc = aLangMap.changeValueId(STTR_DISTORTED_DESC, "Distorted Output");
-    myDevices[DEVICE_HMD]->Name       = aLangMap.changeValueId(STTR_OPENVR_NAME,    "OpenVR HMD");
-    myDevices[DEVICE_HMD]->Desc       = aLangMap.changeValueId(STTR_OPENVR_DESC,    "Distorted Output");
+    myDevices[DEVICE_DISTORTED]->Name      = aLangMap.changeValueId(STTR_DISTORTED_NAME,      "TV (parallel pair)");
+    myDevices[DEVICE_DISTORTED]->Desc      = aLangMap.changeValueId(STTR_DISTORTED_DESC,      "Distorted Output");
+    myDevices[DEVICE_DISTORTED_HALF]->Name = aLangMap.changeValueId(STTR_DISTORTED_HALF_NAME, "TV (half size)");
+    myDevices[DEVICE_DISTORTED_HALF]->Desc = aLangMap.changeValueId(STTR_DISTORTED_DESC,      "Distorted Output");
+    myDevices[DEVICE_HMD]->Name            = aLangMap.changeValueId(STTR_OPENVR_NAME,         "OpenVR HMD");
+    myDevices[DEVICE_HMD]->Desc            = aLangMap.changeValueId(STTR_OPENVR_DESC,         "Distorted Output");
     if(myDevices.size() > DEVICE_S3DV) {
         myDevices[DEVICE_S3DV] ->Name = "S3DV";             //aLangMap.changeValueId(STTR_S3DV_NAME, "S3DV");
         myDevices[DEVICE_S3DV] ->Desc = "Distorted Output"; //aLangMap.changeValueId(STTR_S3DV_DESC, "Distorted Output");
@@ -297,6 +307,13 @@ StOutDistorted::StOutDistorted(const std::shared_ptr<StResourceManager>& theResM
     aDevDistorted->Priority = aSupportParallel;
     aDevDistorted->Name     = stCString("TV (parallel pair)");
     myDevices.push_back(aDevDistorted);
+
+    std::shared_ptr<StOutDevice> aDevHalf = std::make_shared<StOutDevice>();
+    aDevHalf->PluginId = ST_OUT_PLUGIN_NAME;
+    aDevHalf->DeviceId = stCString("DistortedHalf");
+    aDevHalf->Priority = aSupportParallel;
+    aDevHalf->Name     = stCString("TV (half size)");
+    myDevices.push_back(aDevHalf);
 
     std::shared_ptr<StOutDevice> aDevVR = std::make_shared<StOutDevice>();
     aDevVR->PluginId = ST_OUT_PLUGIN_NAME;
@@ -957,7 +974,7 @@ void StOutDistorted::stglDraw() {
                              || myDevice == DEVICE_HMD
                              || params.MonoClone->getValue();
     myIsStereoOn = isStereoSource
-                && StWindow::isFullScreen()
+                && (StWindow::isFullScreen() || myDevice == DEVICE_DISTORTED_HALF)
                 && !myIsBroken;
 
     myIsForcedStereo = myIsStereoOn && (myDevice == DEVICE_HMD || params.MonoClone->getValue());
