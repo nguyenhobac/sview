@@ -328,7 +328,10 @@ void StFTFontRegistry::init(const bool theToSearchAll) {
     StFTFontPack& aMono  = myTypefaces[StFTFont::Typeface_Monospace];
 #ifdef _WIN32
     aSerif.Western = findFont(stCString("Times New Roman"));
-    aSans .Western = findFont(stCString("Trebuchet MS"));
+    aSans .Western = findFont(stCString("Tahoma"));
+    if(aSans.Western.FamilyName.isEmpty()) {
+        aSans .Western = findFont(stCString("Trebuchet MS"));
+    }
     aMono .Western = findFont(stCString("Tahoma"));
     aSans.MiscSymbols = aSerif.Western; // Trebuchet font does not include this sub-set
     const StFTFontFamily& aMalgun = findFont(stCString("Malgun Gothic"));
@@ -349,7 +352,10 @@ void StFTFontRegistry::init(const bool theToSearchAll) {
     aMono .CJK     = aSimSun;
 #elif defined(__APPLE__)
     aSerif.Western = findFont(stCString("Times New Roman"));
-    aSans .Western = findFont(stCString("Trebuchet MS"));
+    aSans .Western = findFont(stCString("Tahoma"));
+    if(aSans.Western.FamilyName.isEmpty()) {
+        aSans .Western = findFont(stCString("Trebuchet MS"));
+    }
     aMono .Western = findFont(stCString("Monaco"));
     aSerif.Korean  = findFont(stCString("AppleGothic")); // AppleMyungjo can not be loaded
     aSans .Korean  = findFont(stCString("AppleGothic"));

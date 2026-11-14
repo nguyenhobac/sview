@@ -1,0 +1,12 @@
+# Vietnamese translation file for StOutDual library
+--------
+1000=Xuất kép (Dual)
+1001=Thiết bị lập thể 2 đầu vào: kính HMD, màn hình gương Stereo, máy chiếu kép
+1002=Xuất phản chiếu (Mirror)
+1003=Màn hình lập thể phản chiếu thủ công (lật theo trục X)
+1102=Màn hình phụ
+1103=Hiện Mono ở chế độ Stereo
+2000=sView - Mô-đun xuất kép
+2001=phiên bản
+2002=© {0} Kirill Gavrilov Tartynskih <{1}>\nTrang chủ chính thức: {2}
+

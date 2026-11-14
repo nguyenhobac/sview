@@ -1,0 +1,19 @@
+# Vietnamese translation file for StOutDistorted library
+--------
+1000=TV (cặp song song)
+1001=Xuất biến dạng
+1002=Kính VR OpenVR
+1003=Biến dạng thùng (Barrel)
+1110=Bố cục
+1111=Cạnh nhau (Side-by-Side)
+1112=Trên-Dưới (Top-and-Bottom)
+1113=Cạnh nhau (Anamorph)
+1114=Trên-Dưới (Anamorph)
+1120=Biến dạng
+1121=Không
+1123=Hiện Mono ở chế độ Stereo
+1124=Phản chiếu VR ra cửa sổ
+2000=sView - Mô-đun xuất biến dạng
+2001=phiên bản
+2002=© {0} Kirill Gavrilov Tartynskih <{1}>\nTrang chủ chính thức: {2}
+

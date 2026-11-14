@@ -1,0 +1,28 @@
+# Vietnamese translation file for StCADViewer
+--------
+1200=Hiển thị
+1202=Toàn màn hình
+1204=Hiện trục tọa độ
+1206=Phép chiếu
+1208=Vừa màn hình
+1240=Trực giao
+1241=Phối cảnh
+1242=Lập thể (3D)
+1402=Hiện FPS
+1500=Trợ giúp
+1501=Giới thiệu...
+1503=Văn bản giấy phép
+1504=Ngôn ngữ
+1511=Cài đặt
+3000=sView - Trình xem CAD nhỏ gọn
+3001=phiên bản
+3002=Trình xem CAD cho phép bạn mở các tệp CAD định dạng IGES, STEP, BREP bằng OpenCASCADE Technology.\n © {0} Kirill Gavrilov <{1}>\nTrang chủ chính thức: {2}\n\nChương trình này được phân phối theo giấy phép GPL3.0
+3004=Thông tin hệ thống
+4000=Đóng
+4001=Hủy
+4006=Lưu
+4007=Xóa
+4008=Mặc định
+4009=Mặc định
+4010=Gán
+

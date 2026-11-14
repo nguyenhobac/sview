@@ -215,6 +215,8 @@ StResourceManager::StResourceManager(const StString& theAppName)
         myLang = "zh";
     } else if(aSysLoc.isStartsWith(stCString("czech"))) {
         myLang = "cs";
+    } else if(aSysLoc.isStartsWith(stCString("vietnamese"))) {
+        myLang = "vi";
     }
 #endif
 }

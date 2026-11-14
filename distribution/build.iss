@@ -1,4 +1,4 @@
-﻿
+
 #include "temp\config.iss"
 
 ; Should be defined in config file
@@ -175,9 +175,10 @@ Name: flagAssocPlaylists;    Description: "{cm:AssocPlaylists}";        GroupDes
 [Files]
 ; Core files
 Source: {#SVIEW_DISTR_PATH}\info\*;                     DestDir: {app}\info;          Flags: ignoreversion; Components: StCore
-Source: {#SVIEW_DISTR_PATH}\lang\Czech\language.lng;    DestDir: {app}\lang\Czech;    Flags: ignoreversion; Components: StCore
-Source: {#SVIEW_DISTR_PATH}\lang\Korean\language.lng;   DestDir: {app}\lang\Korean;   Flags: ignoreversion; Components: StCore
-Source: {#SVIEW_DISTR_PATH}\lang\ChineseS\language.lng; DestDir: {app}\lang\ChineseS; Flags: ignoreversion; Components: StCore
+Source: {#SVIEW_DISTR_PATH}\lang\Czech\language.lng;      DestDir: {app}\lang\Czech;      Flags: ignoreversion; Components: StCore
+Source: {#SVIEW_DISTR_PATH}\lang\Korean\language.lng;     DestDir: {app}\lang\Korean;     Flags: ignoreversion; Components: StCore
+Source: {#SVIEW_DISTR_PATH}\lang\ChineseS\language.lng;   DestDir: {app}\lang\ChineseS;   Flags: ignoreversion; Components: StCore
+Source: {#SVIEW_DISTR_PATH}\lang\Vietnamese\language.lng; DestDir: {app}\lang\Vietnamese; Flags: ignoreversion; Components: StCore
 
 Source: {#SVIEW_DISTR_PATH}\*.exe;                          DestDir: {app};  Flags: 64bit ignoreversion; Components: StCore
 Source: {#SVIEW_DISTR_PATH}\{#LIB_PREFIX}StShared.dll;      DestDir: {app};  Flags: 64bit ignoreversion; Components: StCore

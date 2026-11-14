@@ -1,0 +1,25 @@
+# Vietnamese translation file for StOutPageFlip library
+--------
+1000=Kính màn trập (Shutter)
+1001=Kính màn trập (Shutter)
+1002=Kính Vuzix HMD
+1003=Kính Vuzix HMD
+1102=Loại Quad Buffer
+1103=Mã điều khiển kính
+1120=OpenGL giả lập
+1122=OpenGL phần cứng
+1123=Direct3D (Toàn màn hình)
+1124=Direct3D (Không khả dụng)
+1125=Direct3D AMD (Toàn màn hình)
+1126=Direct3D AMD (Không khả dụng)
+1127=Direct3D NVIDIA (Toàn màn hình)
+1128=Direct3D NVIDIA (Đã tắt)
+1130=Không có mã
+1131=Đồng bộ dòng xanh dương
+1132=Đồng bộ dòng trắng
+1134=Tự động bật/tắt eDimensional
+2000=sView - Mô-đun xuất PageFlip
+2001=phiên bản
+2002=© {0} Kirill Gavrilov Tartynskih <{1}>\nTrang chủ chính thức: {2}
+3001=OpenGL Hardware QuadBuffer không khả dụng!\n\nBạn có thể thử loại Quad Buffer khác\n(bao gồm OpenGL giả lập trong mục Mở rộng).
+

@@ -1,0 +1,20 @@
+# Vietnamese translation file for StOutAnaglyph library
+--------
+1000=Kính Anaglyph
+1001=Kính lọc màu đơn giản. Thường được sử dụng
+1010=Loại kính
+1011=Đỏ-Lục lam (R+GB)
+1012=Vàng-Xanh dương (RG+B)
+1013=Xanh lá-Đỏ tươi (G+RB)
+1102=Bộ lọc Đỏ-Lục lam
+1120=Đơn giản
+1121=Tối ưu hóa
+1122=Thang xám
+1123=Tối
+1103=Bộ lọc Vàng-Xanh dương
+1130=Đơn giản
+1131=Dubois
+2000=sView - Mô-đun xuất Anaglyph
+2001=phiên bản
+2002=© {0} Kirill Gavrilov Tartynskih <{1}>\nTrang chủ chính thức: {2}
+

@@ -88,6 +88,10 @@ void StTranslations::reload() {
             params.language->changeValues().push_back("Čeština");
             myLangFolderList.push_back("Czech");
         }
+        if (myResMgr->isResourceExist(StString("lang" ST_FILE_SPLITTER "Vietnamese" ST_FILE_SPLITTER) + myModuleName + ST_LNG_FILE_SUFFIX)) {
+            params.language->changeValues().push_back("Tiếng Việt");
+            myLangFolderList.push_back("Vietnamese");
+        }
     }
 #endif
 
@@ -157,6 +161,12 @@ void StTranslations::reload() {
                 params.language->setValue(int32_t(anIdInList));
                 isLangSet = true;
             }
+        } else if (aLang.isEqualsIgnoreCase(stCString("vi"))) {
+            if (isInLangFolderList(stCString("Vietnamese"), anIdInList)
+             || isInLangFolderList(stCString("Tiếng Việt"), anIdInList)) {
+                params.language->setValue(int32_t(anIdInList));
+                isLangSet = true;
+            }
         }
     }
     if (!isLangSet) {
@@ -209,6 +219,8 @@ void StTranslations::updateLangCode(const int32_t theNewLang) {
         myLangCode = "chi";
     } else if(aLang == stCString("Čeština")) {
         myLangCode = "cze";
+    } else if(aLang == stCString("Tiếng Việt")) {
+        myLangCode = "vie";
     } else if(aLang == stCString("English")) {
         myLangCode = "eng";
     } else {

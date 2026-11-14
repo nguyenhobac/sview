@@ -48,6 +48,8 @@ distribution/build-*
 3rdparty/include/rapidjson
 .qtcreator/
 build/
+dist/
+.DS_Store
 bin/
 lib/
 work/
